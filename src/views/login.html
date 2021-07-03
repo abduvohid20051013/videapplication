@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="../public/css/login.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <form id="form">
+            <div class="upload">
+                <span class="imgWrap"><img class="avtarImg" src="../public/img/user.svg" alt="img" width="60" height="60"></span>
+                <p class="mainText">Login page</p>
+            </div>
+            <input type="text" class="usernameInput" placeholder="Type your Username..." name="username">
+            <input type="password" class="passwordInput" placeholder="Type your password..." name="password" required>
+            <button type="submit" id="btn">Log in</button>
+            <a href="/register" class="toRegister">Go to the register</a>
+        </form>
+
+    </div>
+    <script src="../public/js/request.js"></script>
+    <script src="../public/js/login.js"></script>
+</body>
+
+</html>
