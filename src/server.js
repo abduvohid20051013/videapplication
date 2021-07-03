@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const fileUpload = require('express-fileupload')
 const cookie = require('cookie-parser')
-const path = require('path')
 const { host, PORT } = require('./config')
 
 

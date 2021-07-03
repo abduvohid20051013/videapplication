@@ -7,7 +7,7 @@ const KEY = '1111'
 function checkToken(req, res, next) {
     try {
         if (req.cookies.token) {
-            let users = fs.readFileSync(path.join(process.cwd(), 'database', 'users.json'), 'utf-8')
+            let users = fs.readFileSync(path.join(process.cwd(), 'src', 'database', 'users.json'), 'utf-8')
             users = users ? JSON.parse(users) : []
             let payload = jwt.verify(req.cookies.token, KEY)
             let found = users.find(user => user.user_id == payload)
@@ -21,7 +21,7 @@ function checkToken(req, res, next) {
 }
 
 const GET = (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'views', 'login.html'))
+    res.sendFile(path.join(process.cwd(), 'src', 'views', 'login.html'))
 }
 
 const POST = (req, res) => {

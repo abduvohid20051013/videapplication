@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const addUser = (user, userImg) => {
-    let users = fs.readFileSync(path.join(process.cwd(), 'database', 'users.json'), 'utf-8')
+    let users = fs.readFileSync(path.join(process.cwd(), 'src', 'database', 'users.json'), 'utf-8')
     users = users ? JSON.parse(users) : []
     let found = users.find(u => u.username == user.username)
     if (!found) {
@@ -13,7 +13,7 @@ const addUser = (user, userImg) => {
             userImg
         }
         users.push(newUser)
-        fs.writeFileSync(path.join(process.cwd(), 'database', 'users.json'), JSON.stringify(users, null, 4))
+        fs.writeFileSync(path.join(process.cwd(), 'src', 'database', 'users.json'), JSON.stringify(users, null, 4))
         newUser.password = null
         return newUser
     } else return

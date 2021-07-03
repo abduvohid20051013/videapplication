@@ -7,7 +7,7 @@ const { addUser } = require('./model')
 function checkToken(req, res, next) {
     try {
         if (req.cookies.token) {
-            let users = fs.readFileSync(path.join(process.cwd(), 'database', 'users.json'), 'utf-8')
+            let users = fs.readFileSync(path.join(process.cwd(), 'src', 'database', 'users.json'), 'utf-8')
             users = users ? JSON.parse(users) : []
             let payload = jsonWebToken.verify(req.cookies.token, KEY)
             let found = users.find(user => user.user_id == payload)
@@ -21,12 +21,12 @@ function checkToken(req, res, next) {
 }
 
 const GET = (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'views', 'register.html'))
+    res.sendFile(path.join(process.cwd(), 'src', 'views', 'register.html'))
 }
 const POST = (req, res) => {
     let file = req.files.file
     let fileName = new Date().getTime() + file.name.replace(/\s/g, "_").trim()
-    file.mv(path.join(process.cwd(), 'upload', 'uploadedImages', fileName))
+    file.mv(path.join(process.cwd(), 'src', 'upload', 'uploadedImages', fileName))
     let newUser = addUser(req.body, fileName)
     if (newUser) {
         res.cookie('token', jsonWebToken.sign(newUser.user_id, KEY))

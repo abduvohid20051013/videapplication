@@ -2,8 +2,8 @@ const fs = require('fs')
 const path = require('path')
 
 const getUsers = () => {
-    let users = fs.readFileSync(path.join(process.cwd(), 'database', 'users.json'), 'utf-8')
-    let videos = fs.readFileSync(path.join(process.cwd(), 'database', 'videos.json'), 'utf-8')
+    let users = fs.readFileSync(path.join(process.cwd(), 'src', 'database', 'users.json'), 'utf-8')
+    let videos = fs.readFileSync(path.join(process.cwd(), 'src', 'database', 'videos.json'), 'utf-8')
     users = users ? JSON.parse(users) : []
     videos = videos ? JSON.parse(videos) : []
     users.map(user => {
