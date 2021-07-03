@@ -30,9 +30,7 @@ send.addEventListener('click', async(e) => {
         }, 1000)
         videonameInput.value = null
         fileName.textContent = 'Videod loaded'
-        setTimeout(() => {
-            location.reload();
-        }, 1000)
+       
     }
 
 })
@@ -90,9 +88,7 @@ function videosRenderer(array, username, userImg) {
         deleteBtn.addEventListener('click', async() => {
             let response = await request(`/videos/${deleteBtn.dataset.id}`, 'DELETE')
             let currentVideos = response.body.filter(video => video.user_id == user.user_id)
-            setTimeout(() => {
-                location.reload();
-            }, 500)
+           
             videosRenderer(currentVideos)
 
         })
@@ -106,9 +102,7 @@ function videosRenderer(array, username, userImg) {
                     title: videoName.textContent
                 })
                 let currentVideos = response.body.filter(video => video.user_id == user.user_id)
-                setTimeout(() => {
-                    location.reload();
-                }, 500)
+               
                 videosRenderer(currentVideos)
 
             }
